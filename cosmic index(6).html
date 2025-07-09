@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nabila Ahmad - AI Comic Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="studio-container">
+        <header class="studio-header">
+            <h1>Nabila Ahmad AI Comic Studio</h1>
+            <p>Hidupkan imajinasi Anda, panel demi panel.</p>
+        </header>
+
+        <main class="studio-main">
+            <!-- Kolom Pengaturan & Konfigurasi -->
+            <aside class="settings-panel">
+                <section class="card api-key-card">
+                    <h2><span class="icon">🔑</span> Konfigurasi Wajib</h2>
+                    <p class="warning">API Key Anda aman & tidak disimpan. Wajib diisi setiap kali membuka halaman.</p>
+                    <input type="password" id="apiKey" placeholder="Masukkan OpenAI API Key Anda (sk-...)">
+                </section>
+
+                <section class="card character-card">
+                    <h2><span class="icon">👤</span> Desain Karakter</h2>
+                    <p>Buat kata pemicu (trigger) untuk memanggil karakter Anda.</p>
+                    <input type="text" id="characterTrigger" placeholder="Contoh: NAB-01 a girl with silver hair">
+                </section>
+                
+                <section class="card style-card">
+                    <h2><span class="icon">🎨</span> Gaya Visual</h2>
+                     <p>Pilih gaya visual untuk komik Anda.</p>
+                    <select id="comicStyle">
+                        <option value="90s anime style">Anime 90an</option>
+                        <option value="modern anime style">Anime Modern</option>
+                        <option value="western comic book style">Komik Barat</option>
+                        <option value="manga style, black and white">Manga (Hitam Putih)</option>
+                        <option value="chibi style">Chibi Style</option>
+                        <option value="cinematic, photorealistic">Photorealistic</option>
+                    </select>
+                </section>
+            </aside>
+
+            <!-- Kolom Generator Utama -->
+            <div class="generator-panel">
+                <section class="card">
+                    <h2><span class="icon">🎬</span> Generator Panel</h2>
+                    <label for="storyPrompt">Deskripsi Adegan (Scene)</label>
+                    <textarea id="storyPrompt" rows="4" placeholder="Contoh: sedang duduk di kafe saat hujan, melihat keluar jendela dengan tatapan sedih."></textarea>
+                    
+                    <label for="dialog">Teks Dialog</label>
+                    <input type="text" id="dialog" placeholder="Contoh: Kapan semua ini akan berakhir?">
+                    
+                    <button id="generateBtn">
+                        <div class="spinner" style="display: none;"></div>
+                        <span class="btn-text">Buat Panel</span>
+                    </button>
+                </section>
+            </div>
+        </main>
+
+        <div class="comic-strip-container">
+            <div class="strip-header">
+                <h2>Hasil Komik Anda</h2>
+                <button id="downloadBtn" disabled>Download Komik</button>
+            </div>
+            <div id="comicStrip" class="comic-strip">
+                <!-- Panel komik yang dihasilkan akan muncul di sini -->
+                <div class="placeholder">
+                    Panel komik Anda akan muncul di sini. Mulai dengan mengisi form di atas!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
